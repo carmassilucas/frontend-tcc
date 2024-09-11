@@ -1,0 +1,79 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Inclusão Digital</title>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-900">
+
+<div class="w-full max-w-4xl p-8 space-y-6 bg-gray-800 shadow-lg rounded-lg">
+    <h2 class="text-3xl font-bold text-center text-white mb-6">Cadastre-se</h2>
+
+    <form th:action="@{/interlocutor/signup}" method="post" class="space-y-6">
+        <div class="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-x-8">
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-300">Nome</label>
+                <input type="text" id="name" name="name" required class="w-full px-4 py-2 mt-1 border rounded-md bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+
+            <div>
+                <label for="dateOfBirth" class="block text-sm font-medium text-gray-300">Data de Nascimento</label>
+                <input type="date" id="dateOfBirth" name="dateOfBirth" required class="w-full px-4 py-2 mt-1 border rounded-md bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+
+            <div>
+                <label for="currentState" class="block text-sm font-medium text-gray-300">Estado Atual</label>
+                <input type="text" id="currentState" name="currentState" required class="w-full px-4 py-2 mt-1 border rounded-md bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+
+            <div>
+                <label for="currentCity" class="block text-sm font-medium text-gray-300">Cidade Atual</label>
+                <input type="text" id="currentCity" name="currentCity" required class="w-full px-4 py-2 mt-1 border rounded-md bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+
+            <div class="md:col-span-2">
+                <label for="aboutMe" class="block text-sm font-medium text-gray-300">Sobre Mim</label>
+                <textarea id="aboutMe" name="aboutMe" rows="3" class="w-full px-4 py-2 mt-1 border rounded-md bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-x-8">
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-300">E-mail</label>
+                <input type="email" id="email" name="email" required class="w-full px-4 py-2 mt-1 border rounded-md bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-300">Senha</label>
+                <input type="password" id="password" name="password" required minlength="10" maxlength="100" class="w-full px-4 py-2 mt-1 border rounded-md bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+
+            <div>
+                <label for="confirm-password" class="block text-sm font-medium text-gray-300">Confirme a Senha</label>
+                <input type="password" id="confirm-password" name="confirmPassword" required class="w-full px-4 py-2 mt-1 border rounded-md bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+            </div>
+
+            <div>
+                <label for="interlocutorType" class="block text-sm font-medium text-gray-300">Tipo de Interlocutor</label>
+                <select id="interlocutorType" name="interlocutorType" required class="w-full px-4 py-2 mt-1 border rounded-md bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    <option value="1">Refugee</option>
+                    <option value="2">Immigrant</option>
+                    <option value="3">Collaborator</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="w-full px-4 py-2 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Cadastrar</button>
+    </form>
+
+    <div class="text-center mt-6">
+        <p class="text-sm text-gray-400">Já tem uma conta? <a th:href="@{/interlocutor/signin}" class="text-indigo-400 hover:underline">Faça login</a></p>
+    </div>
+</div>
+
+</body>
+
+</html>
